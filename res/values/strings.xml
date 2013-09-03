@@ -7,5 +7,8 @@
     <string name="nav_about">About</string>
     <string name="nav_home">Home</string>
     <string name="nav_projects">Projects</string>
+    <string name="about_body_text">I like that programming offers the power to create.\n\nSince graduating from Columbia University in 2006, I\'ve been blessed with opportunities to create. Through code and coffee, I\'ve helped craft experiences for people to enjoy and built systems around which communities could connect. Whether it\'s matching gamers on their Xbox 360s, facilitating social good for young people on their smartphones, or delivering text-based experiences through SMS, I enjoy exploring how technology can enhance the relationships around us.\n\nDC sports teams are the ire of my wife when games are on TV. The joys of biking around NYC are now apparent to me. I pretend to know how to play the guitar and cook. And I\'d like to think that I can dance.\n\nAlso, back there is Aiko. She\'s a donut stealer.</string>
+    <string name="about_last_updated">Last updated: September 1, 2013</string>
+    <string name="about_title">About Me</string>
 
 </resources>

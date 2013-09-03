@@ -20,7 +20,7 @@ import android.widget.ListView;
 
 public class Home extends RoboActivity {
 	
-	private final int BG_IMAGE_DURATION = 7000;
+	private final int BG_IMAGE_DURATION = 10000;
 	
 	@InjectView(R.id.drawer_layout) private DrawerLayout mDrawerLayout;
 	@InjectView(R.id.left_drawer) private ListView mDrawerList;
@@ -39,7 +39,7 @@ public class Home extends RoboActivity {
 		R.drawable.bg4,
 	};
 	
-	private int mCurrentBgImageIndex = -1;
+	private int mCurrentBgImageIndex;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -113,12 +113,11 @@ public class Home extends RoboActivity {
 		}
 	}
 	
-	
-	
 	@Override
-	public void onStart() {
-		super.onStart();
+	public void onResume() {
+		super.onResume();
 		
+		mCurrentBgImageIndex = -1;
 		mUpdateBgImageTask.run();
 	}
 	
@@ -126,6 +125,7 @@ public class Home extends RoboActivity {
 	public void onPause() {
 		super.onPause();
 		
+		mHandler.removeCallbacks(mUpdateBgImageTask);
 		mDrawerList.setSelected(false);
 		mDrawerLayout.closeDrawers();
 	}

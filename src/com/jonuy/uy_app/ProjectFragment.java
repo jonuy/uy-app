@@ -7,6 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * Fragment representing a single project view.
+ * 
+ * Reference source: http://developer.android.com/training/animation/screen-slide.html
+ */
 public class ProjectFragment extends Fragment {
 
 	private static final String ARG_PAGE = "page_number";

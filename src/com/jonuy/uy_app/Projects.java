@@ -12,6 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+/**
+ * Activity for displaying projects. Project views are broken out into fragments
+ * that the user can swipe through because of the ViewPager.
+ * 
+ * Reference source: http://developer.android.com/training/animation/screen-slide.html
+ */
 public class Projects extends FragmentActivity {
 	
 	private static final int NUM_PAGES = 3;
@@ -29,6 +35,7 @@ public class Projects extends FragmentActivity {
 		mPager = (ViewPager)findViewById(R.id.pager);
 		mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
 		mPager.setAdapter(mPagerAdapter);
+		mPager.setPageTransformer(true, new ZoomOutPageTransformer());
 		mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
 			
 			@Override
@@ -68,6 +75,9 @@ public class Projects extends FragmentActivity {
 		}
 	}
 	
+	/**
+	 * Pager adapter to provide the views for the ViewPager 
+	 */
 	private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 		public ScreenSlidePagerAdapter(FragmentManager fm) {
 			super(fm);
@@ -81,6 +91,48 @@ public class Projects extends FragmentActivity {
 		@Override
 		public int getCount() {
 			return NUM_PAGES;
+		}
+	}
+	
+	/**
+	 * Page transformer for custom animating the pager transitions
+	 */
+	private class ZoomOutPageTransformer implements ViewPager.PageTransformer {
+		private final float MIN_SCALE = 0.85f;
+		private final float MIN_ALPHA = 0.5f;
+		
+		public void transformPage(View v, float pos) {
+			int pageWidth = v.getWidth();
+			int pageHeight = v.getHeight();
+			
+			// Position of page is off-screen to the left
+			if (pos < -1) {
+				v.setAlpha(0);
+			}
+			else if (pos <= 1) {
+				// Modify the default slide transition to shrink the page too
+				float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(pos));
+				float vMargin = pageHeight * (1 - scaleFactor) / 2;
+				float hMargin = pageWidth * (1 - scaleFactor) / 2;
+				
+				if (pos < 0) {
+					v.setTranslationX(hMargin - vMargin / 2);
+				}
+				else {
+					v.setTranslationX(-hMargin + vMargin / 2);
+				}
+				
+				// Scale page down (between MIN_SCALE and 1)
+				v.setScaleX(scaleFactor);
+				v.setScaleY(scaleFactor);
+				
+				// Fade the page relative to its size
+				v.setAlpha(MIN_ALPHA + (scaleFactor - MIN_SCALE) / (1 - MIN_SCALE) * (1 - MIN_ALPHA));
+			}
+			// Position of page is off-screen to the right
+			else {
+				v.setAlpha(0);
+			}
 		}
 	}
 }

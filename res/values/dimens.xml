@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_size_back">48dp</dimen>
+    <dimen name="pager_dot_diameter">16dp</dimen>
+    <dimen name="textsize_header">32sp</dimen>
+    <dimen name="textsize_normal">16sp</dimen>
+</resources>

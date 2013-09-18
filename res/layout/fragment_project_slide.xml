@@ -5,15 +5,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
         
-        <ImageView 
+        <ImageView
+            android:id="@+id/project_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/face_circle" />
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_project_dosomething" />
         
         <TextView
+            android:id="@+id/project_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -21,7 +24,7 @@
             android:background="@drawable/text_background"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            android:text="Lorem ipsum dolor sit amet" />
+            android:text="@string/cupcake_ipsum" />
     </LinearLayout>
     
 

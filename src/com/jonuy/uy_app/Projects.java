@@ -7,6 +7,10 @@ import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class Projects extends FragmentActivity {
 	
@@ -19,9 +23,49 @@ public class Projects extends FragmentActivity {
 		super.onCreate(savedInstance);
 		setContentView(R.layout.activity_projects);
 		
+		// Use position 0 for initial page
+		updateActivityOnPageChange(0);
+		
 		mPager = (ViewPager)findViewById(R.id.pager);
 		mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
 		mPager.setAdapter(mPagerAdapter);
+		mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+			
+			@Override
+			public void onPageSelected(int position) {
+				updateActivityOnPageChange(position);	
+			}
+		});
+		
+		Button backButton = (Button)this.findViewById(R.id.button_back);
+		backButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+	}
+	
+	/**
+	 * Updates the UI of the activity to respond to whatever page the ViewPager
+	 * has changed to.
+	 * 
+	 * @param position Page that the ViewPager has changed to
+	 */
+	private void updateActivityOnPageChange(int position) {
+		LinearLayout container = (LinearLayout)findViewById(R.id.pager_dots);
+		container.removeAllViews();
+		
+		LayoutInflater inflater = getLayoutInflater();
+		for (int i = 0; i < NUM_PAGES; i++) {
+			int dotResId = R.layout.shape_pager_dot_open;
+			if (i == position) {
+				dotResId = R.layout.shape_pager_dot_filled;
+			}
+			
+			View v = inflater.inflate(dotResId, container, false);
+			container.addView(v);
+		}
 	}
 	
 	private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
@@ -31,7 +75,7 @@ public class Projects extends FragmentActivity {
 
 		@Override
 		public Fragment getItem(int position) {
-			return new ProjectFragment();
+			return ProjectFragment.create(position);
 		}
 
 		@Override

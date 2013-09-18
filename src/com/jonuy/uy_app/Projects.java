@@ -98,8 +98,8 @@ public class Projects extends FragmentActivity {
 	 * Page transformer for custom animating the pager transitions
 	 */
 	private class ZoomOutPageTransformer implements ViewPager.PageTransformer {
-		private final float MIN_SCALE = 0.85f;
-		private final float MIN_ALPHA = 0.5f;
+		private final float MIN_SCALE = 0.9f;
+		private final float MIN_ALPHA = 0.85f;
 		
 		public void transformPage(View v, float pos) {
 			int pageWidth = v.getWidth();

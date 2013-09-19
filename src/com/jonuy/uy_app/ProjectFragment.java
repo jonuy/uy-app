@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -34,17 +35,39 @@ public class ProjectFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_project_slide, null);
+		ImageView iv = (ImageView)rootView.findViewById(R.id.project_image);
 		TextView tv = (TextView)rootView.findViewById(R.id.project_text);
 		
 		switch (mPageNumber) {
+		// Do Something android app
 		case 0:
+			iv.setImageResource(R.drawable.project_ds_logo);
 			tv.setText(R.string.cupcake_ipsum);
 			break;
+		// Pregnancy Text
 		case 1:
+			iv.setImageResource(R.drawable.project_pregtext_logo);
+			tv.setText(R.string.cupcake_ipsum);
+			break;
+		// KnowItAll
+		case 2:
+			iv.setImageResource(R.drawable.project_knowitall_logo);
 			tv.setText(R.string.cupcake_ipsum2);
 			break;
-		case 2:
+		// Ink Framework
+		case 3:
+			iv.setImageResource(R.drawable.project_ink_logo);
 			tv.setText(R.string.cupcake_ipsum3);
+			break;
+		// Homefront
+		case 4:
+			iv.setImageResource(R.drawable.project_homefront_logo);
+			tv.setText(R.string.cupcake_ipsum2);
+			break;
+		// Frontlines: Fuel of War
+		case 5:
+			iv.setImageResource(R.drawable.project_ffow_logo);
+			tv.setText(R.string.cupcake_ipsum);
 			break;
 		}
 		

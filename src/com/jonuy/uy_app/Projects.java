@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
  */
 public class Projects extends FragmentActivity {
 	
-	private static final int NUM_PAGES = 3;
+	private static final int NUM_PAGES = 6;
 	private ViewPager mPager;
 	private PagerAdapter mPagerAdapter;
 

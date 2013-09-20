@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable>
+        <attr name="foregroundSrc" format="reference"/>
+        <attr name="backgroundSrc" format="reference"/>
+    </declare-styleable>
+</resources>

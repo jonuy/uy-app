@@ -1,3 +1,16 @@
 bin/
 gen/
 .settings/
+
+# vim
+*.swp
+
+# Android Studio
+.idea/
+*.gradle
+gradle/
+gradlew
+gradlew.bat
+local.properties
+build
+*.iml

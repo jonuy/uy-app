@@ -22,11 +22,11 @@ public class ParallaxView extends View {
 	public ParallaxView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		
-		TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.BGImageView, 0, 0);
+		TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ParallaxView, 0, 0);
 		
 		try {
-			backgroundSrc = a.getResourceId(R.styleable.BGImageView_backgroundSrc, 0);
-			foregroundSrc = a.getResourceId(R.styleable.BGImageView_foregroundSrc, 0);
+			backgroundSrc = a.getResourceId(R.styleable.ParallaxView_backgroundSrc, 0);
+			foregroundSrc = a.getResourceId(R.styleable.ParallaxView_foregroundSrc, 0);
 		}
 		finally {
 			a.recycle();

@@ -1,22 +1,19 @@
 package com.jonuy.uy_app;
 
-import roboguice.activity.RoboActivity;
-import roboguice.inject.InjectView;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 public class Home extends RoboActivity {
 	
@@ -25,8 +22,8 @@ public class Home extends RoboActivity {
 	@InjectView(R.id.drawer_layout) private DrawerLayout mDrawerLayout;
 	@InjectView(R.id.left_drawer) private ListView mDrawerList;
 	@InjectView(R.id.drawer_toggle) private Button mDrawerToggle;
-	@InjectView(R.id.image1) private ImageView mBgImage1;
-	@InjectView(R.id.image2) private ImageView mBgImage2;
+//	@InjectView(R.id.image1) private ImageView mBgImage1;
+//	@InjectView(R.id.image2) private ImageView mBgImage2;
 	private ImageView mOldImage;
 	private ImageView mNewImage;
 	
@@ -47,20 +44,20 @@ public class Home extends RoboActivity {
 		
 		setContentView(R.layout.activity_home);
 		
-		mBgImage1.setDrawingCacheEnabled(true);
-		mBgImage2.setDrawingCacheEnabled(true);
-		mBgImage1.setDrawingCacheBackgroundColor(Color.BLACK);
-		mBgImage2.setDrawingCacheBackgroundColor(Color.BLACK);
+//		mBgImage1.setDrawingCacheEnabled(true);
+//		mBgImage2.setDrawingCacheEnabled(true);
+//		mBgImage1.setDrawingCacheBackgroundColor(Color.BLACK);
+//		mBgImage2.setDrawingCacheBackgroundColor(Color.BLACK);
 		
 		// Task to update the background image on set time intervals
-		mHandler = new Handler();
-		mUpdateBgImageTask = new Runnable() {
-			@Override
-			public void run() {
-				updateBgImage();
-				mHandler.postDelayed(mUpdateBgImageTask, BG_IMAGE_DURATION);
-			}
-		};
+//		mHandler = new Handler();
+//		mUpdateBgImageTask = new Runnable() {
+//			@Override
+//			public void run() {
+//				updateBgImage();
+//				mHandler.postDelayed(mUpdateBgImageTask, BG_IMAGE_DURATION);
+//			}
+//		};
 		
 		// Drawer setup for app navigation
 		String[] drawerItems = {
@@ -118,14 +115,14 @@ public class Home extends RoboActivity {
 		super.onResume();
 		
 		mCurrentBgImageIndex = -1;
-		mUpdateBgImageTask.run();
+//		mUpdateBgImageTask.run();
 	}
 	
 	@Override
 	public void onPause() {
 		super.onPause();
 		
-		mHandler.removeCallbacks(mUpdateBgImageTask);
+//		mHandler.removeCallbacks(mUpdateBgImageTask);
 		mDrawerList.setSelected(false);
 		mDrawerLayout.closeDrawers();
 	}
@@ -134,13 +131,14 @@ public class Home extends RoboActivity {
 	public void onStop() {
 		super.onStop();
 		
-		mHandler.removeCallbacks(mUpdateBgImageTask);
+//		mHandler.removeCallbacks(mUpdateBgImageTask);
 	}
 	
 	/**
 	 * Setup sources and transitions for the background ImageViews
 	 */
 	private void updateBgImage() {
+        /*
 		// Swap ImageViews that'll transition in and out
 		if (mNewImage == null || mNewImage.equals(mBgImage2)) {
 			mOldImage = mBgImage2;
@@ -198,5 +196,6 @@ public class Home extends RoboActivity {
 				}
 			});
 		}
+		*/
 	}
 }

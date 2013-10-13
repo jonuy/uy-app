@@ -3,5 +3,7 @@
     <declare-styleable name="ParallaxView">
         <attr name="foregroundSrc" format="reference"/>
         <attr name="backgroundSrc" format="reference"/>
+        <attr name="foregroundDuration" format="float"/>
+        <attr name="backgroundDuration" format="float"/>
     </declare-styleable>
 </resources>

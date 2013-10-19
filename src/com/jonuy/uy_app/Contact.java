@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.jonuy.mail.SendMailTask;
+
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 
@@ -44,8 +46,24 @@ public class Contact extends RoboActivity {
      * Send email using values from the activity's input fields.
      */
     private void sendEmail() {
-        String strDonut = mInputDonut.getText().toString();
-        String strEmail = mInputEmail.getText().toString();
-        String strMessage = mInputMessage.getText().toString();
+        String msgDonut = mInputDonut.getText().toString();
+        String fromEmail = mInputEmail.getText().toString();
+        String msgBody = mInputMessage.getText().toString();
+
+        String toEmail = getString(R.string.to_email);
+        String senderEmail = getString(R.string.sender_email);
+        String senderPassword = getString(R.string.sender_password);
+
+        String composedMessage = getString(R.string.mail_composed, fromEmail, msgDonut, msgBody);
+
+        SendMailTask sendTask = new SendMailTask(
+                this,
+                senderEmail,
+                senderPassword,
+                toEmail,
+                fromEmail,
+                "",
+                composedMessage);
+        sendTask.execute();
     }
 }

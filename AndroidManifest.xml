@@ -4,6 +4,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <!-- To send email -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="18" />
@@ -28,6 +31,10 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.jonuy.uy_app.About"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.jonuy.uy_app.Contact"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity

@@ -1,0 +1,5 @@
+<resources>
+    <string name="to_email">jonathanjuy@gmail.com</string>
+    <string name="sender_email"></string>
+    <string name="sender_password"></string>
+</resources>

@@ -51,13 +51,13 @@ public class UYMail extends Authenticator {
     }
 
     /**
-     * TODO
+     * Creates message and sends it.
      *
-     * @param to
-     * @param from
-     * @param subject
-     * @param body
-     * @return
+     * @param to Email address to send message to
+     * @param from Email address the message is from
+     * @param subject Subject for the email
+     * @param body Message body for the email
+     * @return true on success, false on failure
      * @throws Exception
      */
     public boolean send(String to, String from, String subject, String body) throws Exception {
@@ -69,7 +69,7 @@ public class UYMail extends Authenticator {
             return false;
         }
 
-        // TODO: comments about Properties
+        // Key/value hastable of properties used to create the Session
         Properties properties = new Properties();
 
         properties.put("mail.smtp.host", mHost);
@@ -82,15 +82,15 @@ public class UYMail extends Authenticator {
         properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         properties.put("mail.smtp.socketFactory.fallback", "false");
 
-        // TODO: comment about Session
+        // Mail session to handle email transport
         Session session = Session.getInstance(properties, this);
 
         MimeMessage msg = new MimeMessage(session);
 
-        // TODO: comment
+        // Set the "from" email
         msg.setFrom(new InternetAddress(from));
 
-        // TODO: comment
+        // Set the "to" email and other message details
         InternetAddress addressTo = new InternetAddress(to);
         msg.setRecipient(MimeMessage.RecipientType.TO, addressTo);
 

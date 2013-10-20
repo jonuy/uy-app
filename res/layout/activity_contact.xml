@@ -25,36 +25,44 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/contact_email_input" />
+                android:text="@string/contact_email_input"
+                android:textSize="@dimen/textsize_normal" />
             <EditText
                 android:id="@+id/input_email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_normal"/>
             
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/contact_donut_input" />
+                android:layout_marginTop="20dp"
+                android:text="@string/contact_donut_input"
+                android:textSize="@dimen/textsize_normal"/>
             <EditText
                 android:id="@+id/input_donut"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_normal"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/contact_message_input" />
+                android:layout_marginTop="20dp"
+                android:text="@string/contact_message_input"
+                android:textSize="@dimen/textsize_normal"/>
             <EditText
                 android:id="@+id/input_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lines="5"/>
+                android:textSize="@dimen/textsize_normal"/>
             
             <Button
                 android:id="@+id/button_submit"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
                 android:text="@string/contact_submit" />
         </LinearLayout>
     </ScrollView>

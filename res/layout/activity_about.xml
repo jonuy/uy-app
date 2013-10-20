@@ -9,52 +9,56 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/bg4" />
-    
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="@dimen/button_size_back"
+        android:layout_height="@dimen/button_size_back"
+        android:background="@drawable/button_back"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp" />
+
+    <ImageView
+        android:id="@+id/face"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_below="@id/button_back"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/face_circle" />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/face"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/text_background"
             android:orientation="vertical">
-            <Button
-                android:id="@+id/button_back"
-                android:layout_width="@dimen/button_size_back"
-                android:layout_height="@dimen/button_size_back"
-                android:background="@drawable/button_back"
-                android:layout_gravity="right"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp" />
-	        <ImageView
-	            android:layout_width="128dp"
-	            android:layout_height="128dp"
-	            android:layout_gravity="center_horizontal"
-	            android:src="@drawable/face_circle" />
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textsize_header"
+                android:textStyle="bold"
+                android:text="@string/about_title" />
 	        <TextView
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:layout_gravity="center_horizontal"
-	            android:layout_marginTop="16dp"
-	            android:layout_marginBottom="16dp"
-	            android:textColor="@android:color/white"
-	            android:textSize="@dimen/textsize_header"
-	            android:textStyle="bold"
-	            android:text="@string/about_title" />
-	        <TextView
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_gravity="center_horizontal"
-	            android:layout_margin="10dp"
-	            android:background="@drawable/text_background"
+	            android:layout_gravity="center"
 	            android:textColor="@android:color/black"
-	            android:textSize="16sp"
+	            android:textSize="@dimen/textsize_normal"
 	            android:text="@string/about_body_text" />
 	        <TextView
 	            android:layout_width="match_parent"
 	            android:layout_height="match_parent"
-	            android:layout_marginLeft="10dp"
-	            android:layout_marginRight="10dp"
-	            android:layout_marginBottom="10dp"
 	            android:textColor="@android:color/white"
 	            android:textSize="@dimen/textsize_normal"
 	            android:textStyle="italic"

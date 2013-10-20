@@ -108,12 +108,7 @@ public class Home extends RoboActivity {
 
         @Override
         public boolean isEnabled(int position) {
-            switch (position) {
-                case 0:
-                    return false;
-                default:
-                    return true;
-            }
+            return true;
         }
     }
 

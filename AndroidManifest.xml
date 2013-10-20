@@ -36,7 +36,7 @@
         <activity
             android:name="com.jonuy.uy_app.Contact"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
         <activity
             android:name="com.jonuy.uy_app.Projects"
             android:screenOrientation="portrait"
